@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Tuition Attendance</title>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container form-div">
+    <div class="center"><h1>Input form</h1></div>
+    <form action="/" method="post">
+      <div class="form-group">
+        <label for="">Name:</label>
+        <select class="form-control" name="name" placeholder="Student name here" required>
+          <option value="Meem">Meem</option>
+          <option value="Sanvi">Sanvi</option>
+          <option value="Prachurjo">Prachurjo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="">Date:</label>
+        <input class="form-control" type="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <label for="">Payment:</label>
+        <input class="form-control" type="text" name="payment" placeholder="if applicable" autocomplete="off">
+      </div>
+      <button type="submit" class="btn btn-info" name="button">Submit</button>
+    </form>
+  </div>
+  <div class="container table-div">
+    <div class="center"><h1>Attendance sheet</h1></div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name of the Student</th>
+          <th scope="col">Attendance</th>
+          <th scope="col">Payment</th>
+        </tr>
+      </thead>
+      <% data.forEach(function(entry){ %>
+      <tr>
+        <td><a href="<%= entry.name %>" class="link"><%= entry.name %></a></td>
+        <td><%= entry.date %></td>
+        <td><%= entry.payment %></td>
+      </tr>
+      <% }); %>
+    </table>
+  </div>
+</body>
+
+</html>

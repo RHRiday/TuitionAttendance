@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Tuition Attendance</title>
+  <meta charset="utf-8">
+  <script src="https://kit.fontawesome.com/43b42e8e8a.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <div class="c-table container">
+    <div class="center">
+      <h2>Attendance data</h2>
+    </div>
+    <table>
+      <tr>
+        <th class="th">Name of the student: </th>
+        <td><td><%= name %></td></td>
+      </tr>
+      <tr>
+        <th class="th">Total attendance:</th>
+        <td><td><%= info.length %></td></td>
+      </tr>
+    </table>
+  </div>
+  <div class="table-div container">
+    <div class="center">
+      <h1><%= name %>'s Attendance sheet</h1>
+    </div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name of the Student</th>
+          <th scope="col">Attendance</th>
+          <th scope="col">Payment</th>
+        </tr>
+      </thead>
+      <% info.forEach(function(entry){ %>
+      <tr>
+        <td><%= entry.name %></td>
+        <td><%= entry.date %></td>
+        <td><%= entry.payment %></td>
+      </tr>
+      <% }); %>
+    </table>
+  </div>
+  <div class="btn-div container">
+    <button type="button" class="btn btn-dark" onclick="window.history.back()"><i class="fas fa-reply"></i> Back</button>
+  </div>
+</body>
+
+</html>

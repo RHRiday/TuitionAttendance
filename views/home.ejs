@@ -47,11 +47,22 @@
       <tr>
         <td><a href="<%= entry.name %>" class="link"><%= entry.name %></a></td>
         <td><%= entry.date %></td>
-        <td><%= entry.payment %></td>
+        <td><span class="status"><%= entry.payment %></span></td>
       </tr>
       <% }); %>
     </table>
   </div>
+
+  <script type="text/javascript">
+    let status = document.querySelectorAll('.status');
+    status.forEach(function(item){
+      if (item.innerHTML === "ok") {
+        item.setAttribute("style", "background-color:#a8ffb3");
+      }else if (item.innerHTML === "start") {
+        item.setAttribute("style", "background-color:#d1ffe5");
+      }
+    });
+  </script>
 </body>
 
 </html>

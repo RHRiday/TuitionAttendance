@@ -44,7 +44,7 @@ label {
 
 .th{
   background-color: #2122290d;
-  padding: 0.3rem;
+  padding: 15px 0.3rem;
   border-radius: 5%;
   line-height: 1.5;
 }
@@ -61,4 +61,10 @@ label {
 .link:hover {
   color: #f8f9fa;
   background-color: #007bff;
+}
+
+.status{
+  border-radius: 6%;
+  padding: 8px 20px;
+  text-align:center;
 }

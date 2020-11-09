@@ -17,7 +17,6 @@ const tuitionSchema = {
   date: String,
   payment: String
 };
-//database entry -->
 const Att = mongoose.model("Att", tuitionSchema);
 
 // getting root page data
@@ -29,14 +28,26 @@ app.get("/", function(req, res){
 
 app.get("/:stdName", function(req, res){
   const stdName = req.params.stdName;
+  const payDates = [];
+  const startDate = [];
   Att.find({name:stdName}, function(err, found){
+    found.forEach(function(item){
+      if (item.payment === "ok") {
+        payDates.push(item.date);
+      }else if (item.payment === "start") {
+        startDate.push(item.date);
+      }
+    });
     res.render("students", {
       name: stdName,
-      info: found
+      info: found,
+      startDate: startDate,
+      payDates: payDates
     });
   });
-})
+});
 
+//database entry -->
 app.post("/", function(req, res){
   const dataName = req.body.name;
   const dataDD = req.body.date;

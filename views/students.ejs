@@ -21,9 +21,23 @@
         <td><td><%= name %></td></td>
       </tr>
       <tr>
+        <th class="th">Started: </th>
+        <td><td><%= startDate[0] %></td></td>
+      </tr>
+      <tr>
         <th class="th">Total attendance:</th>
         <td><td><%= info.length %></td></td>
       </tr>
+      <tr>
+        <th class="th" rowspan="<%= payDates.length %>">Payment Dates:</th>
+        <td><td><%= payDates[0] %></td></td>
+      </tr>
+      <% if(payDates.length > 1){ %>
+        <% for(i=1; i<payDates.length; i++){ %>
+            <tr>
+              <td><td><%= payDates[i] %></td></td>
+            </tr>
+      <% }} %>
     </table>
   </div>
   <div class="table-div container">
@@ -35,14 +49,12 @@
         <tr>
           <th scope="col">Name of the Student</th>
           <th scope="col">Attendance</th>
-          <th scope="col">Payment</th>
         </tr>
       </thead>
       <% info.forEach(function(entry){ %>
       <tr>
         <td><%= entry.name %></td>
         <td><%= entry.date %></td>
-        <td><%= entry.payment %></td>
       </tr>
       <% }); %>
     </table>

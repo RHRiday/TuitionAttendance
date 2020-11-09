@@ -22,7 +22,7 @@ const Att = mongoose.model("Att", tuitionSchema);
 
 // getting root page data
 app.get("/", function(req, res){
-  Att.find({}).sort({date:1}).exec(function(err, data){
+  Att.find({}).sort({date:-1}).exec(function(err, data){
     res.render("home", {data: data});
   });
 });

@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const _ = require("lodash");
-const alert = require("alert");
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -23,7 +22,7 @@ const Att = mongoose.model("Att", tuitionSchema);
 
 // getting root page data
 app.get("/", function(req, res){
-  Att.find({}, function(err, data){
+  Att.find({}).sort({date:1}).exec(function(err, data){
     res.render("home", {data: data});
   });
 });
@@ -51,7 +50,7 @@ app.post("/", function(req, res){
     if (err) {
       console.log(err);
     }else{
-      alert("Input success");
+      console.log("Input success");
     }
   });
   res.redirect("/");

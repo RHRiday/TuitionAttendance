@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://rhriday:poke@rhriday.2u5wv.mongodb.net/tuitionAtt", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://rhriday:poke@rhriday.2u5wv.mongodb.net/tuitionAtt", {useNewUrlParser: true,  useUnifiedTopology: true});
 
 //database structure -->
 const tuitionSchema = {
@@ -69,7 +69,7 @@ app.post("/", function(req, res){
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 3000;
+  port = 2000;
 }
 app.listen(port, function() {
   console.log("Server started");

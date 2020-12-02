@@ -1,5 +1,6 @@
-* {
+*, body {
   font-family: 'Ubuntu', sans-serif;
+  max-width: 1300px;
 }
 
 h1 {
@@ -17,28 +18,50 @@ label {
   background-color: #2122294f;
 }
 
-.container.form-div {
-  position: relative;
+.form-div {
   border: solid #eeeeee;
   padding: 15px 20px;
   margin: 20px auto 50px;
   width: 30%;
 }
-.container.table-div {
-  position: relative;
+@media only screen and (max-width: 976px) {
+  .form-div {
+    width: 100%;
+  }
+}
+.table-div {
   border: solid #eeeeee;
   padding: 15px 20px;
   margin: 20px auto 50px;
   width: 70%;
 }
-.container.c-table{
-  position: relative;
+@media only screen and (max-width: 976px) {
+  .table-div {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .table-div {
+    width: 500px;
+  }
+}
+.c-table{
   border: solid #eeeeee;
   padding: 15px 20px;
   margin: 20px auto 50px;
   width: 30%;
 }
-.container.btn-div{
+@media only screen and (max-width: 1005px) {
+  .c-table {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 680px) {
+  .c-table {
+    width: 100%;
+  }
+}
+.btn-div{
   width: 70%;
 }
 

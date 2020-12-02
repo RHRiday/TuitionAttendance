@@ -29,6 +29,11 @@ label {
     width: 100%;
   }
 }
+@media only screen and (max-width: 500px) {
+  .form-div {
+    width: 85%;
+  }
+}
 .table-div {
   border: solid #eeeeee;
   padding: 15px 20px;
@@ -38,11 +43,6 @@ label {
 @media only screen and (max-width: 976px) {
   .table-div {
     width: 100%;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .table-div {
-    width: 500px;
   }
 }
 .c-table{
@@ -58,11 +58,8 @@ label {
 }
 @media only screen and (max-width: 680px) {
   .c-table {
-    width: 100%;
+    width: 85%;
   }
-}
-.btn-div{
-  width: 70%;
 }
 
 .th{

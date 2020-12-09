@@ -49,22 +49,24 @@ app.get("/:stdName", function(req, res){
 
 //database entry -->
 app.post("/", function(req, res){
-  const dataName = req.body.name;
-  const dataDD = req.body.date;
-  const dataPay = req.body.payment;
-  const data = {
-    name: dataName,
-    date: dataDD,
-    payment: dataPay
-  }
-  Att.create(data, function(err){
-    if (err) {
-      console.log(err);
-    }else{
-      console.log("Input success");
+  if(req.body.validation === ".ajama"){
+    const dataName = req.body.name;
+    const dataDD = req.body.date;
+    const dataPay = req.body.payment;
+    const data = {
+      name: dataName,
+      date: dataDD,
+      payment: dataPay
     }
-  });
-  res.redirect("/");
+    Att.create(data, function(err){
+      if (err) {
+        console.log(err);
+      }else{
+        console.log("Input success");
+      }
+    });
+    res.redirect("/");
+  }else{res.redirect("/");}
 });
 
 let port = process.env.PORT;

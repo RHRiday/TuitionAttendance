@@ -49,7 +49,7 @@ app.get("/:stdName", function(req, res){
 
 //database entry -->
 app.post("/", function(req, res){
-  if(req.body.validation === ".ajama"){
+  if(req.body.validation === process.env.VALID){
     const dataName = req.body.name;
     const dataDD = req.body.date;
     const dataPay = req.body.payment;

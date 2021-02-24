@@ -50,18 +50,37 @@
         <tr>
           <th scope="col">Name of the Student</th>
           <th scope="col">Attendance</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <% info.forEach(function(entry){ %>
       <tr>
         <td><%= entry.name %></td>
         <td><%= entry.date %></td>
+        <td>
+          <div>
+            <button id="<%= entry._id %>" class="btn btn-danger" onclick="findMe(this.id)">Delete</button>
+            <form action="/action" data-formId="<%= entry._id %>" class="actionForm">
+              <input type="text" name="validation" placeholder="Your identity?">
+              <input type="hidden" name="objId" value="<%= entry._id %>">
+              <input type="submit" class="btn btn-danger" value="Delete" autocomplete="off">
+            </form>
+          </div>
+        </td>
       </tr>
       <% }); %>
     </table>
     <hr>
     <button type="button" class="btn btn-dark" onclick="window.history.back()"><i class="fas fa-reply"></i> Back</button>
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+      function findMe(e){
+        $(`#${CSS.escape(e)}`).hide();
+        $(`[data-formId=${CSS.escape(e)}]`).show();
+      }
+  </script>
 </body>
 
 </html>

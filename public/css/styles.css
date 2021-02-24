@@ -88,3 +88,24 @@ label {
   padding: 8px 20px;
   text-align:center;
 }
+
+.actionForm{
+  display: none;
+}
+.actionForm input[type=text]{
+  width: 80px;
+  margin-left: 1px;
+  padding-left: 6px;
+}
+.actionForm input[type=text]::-webkit-input-placeholder{
+  font-size: 10px;
+}
+
+.actionForm input[type=submit]{
+  width: 53px;
+  height: 37px;
+  font-size: 12px;
+  padding-left: 6px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}

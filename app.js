@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://rhriday:poke@rhriday.2u5wv.mongodb.net/tuitionAtt", {useNewUrlParser: true,  useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://rhriday:poke@rhriday.2u5wv.mongodb.net/tuitionAtt", {useNewUrlParser: true,  useUnifiedTopology: true, useFindAndModify: false});
 
 //database structure -->
 const tuitionSchema = {
@@ -24,6 +24,25 @@ app.get("/", function(req, res){
   Att.find({}).sort({date:-1}).exec(function(err, data){
     res.render("home", {data: data});
   });
+});
+
+//entry deletion -->
+app.get("/action", function(req, res){
+  if(req.query.validation === process.env.VALID){
+    console.log('Deleted this record:');
+    const id = req.query.objId;
+    Att.findByIdAndRemove(id, function(err, ent){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(ent);
+      }
+    });
+    res.redirect("/");
+  }else{
+    console.log(req.query.validation+" Tried Deleting a record");
+    res.redirect("/");
+  }
 });
 
 app.get("/:stdName", function(req, res){
@@ -61,12 +80,12 @@ app.post("/", function(req, res){
     Att.create(data, function(err){
       if (err) {
         console.log(err);
-      }else{
-        console.log("Input success");
       }
     });
     res.redirect("/");
-  }else{res.redirect("/");}
+  }else{
+    res.redirect("/");
+  }
 });
 
 let port = process.env.PORT;
